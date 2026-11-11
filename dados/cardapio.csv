@@ -1,0 +1,19 @@
+tipo;id;nome;descricao;calorias;disponivel;preferenciasCompativeis
+PRATO;1;Frango grelhado;Peito de frango grelhado com legumes salteados;420;true;Sem glúten|Sem lactose|Low carb
+PRATO;2;Omelete de legumes;Omelete de ovos com abobrinha, cenoura e espinafre;330;true;Vegetariano|Sem glúten|Sem lactose|Low carb
+PRATO;3;Strogonoff de frango;Strogonoff de frango com creme de leite;510;true;
+PRATO;4;Risoto de cogumelos;Risoto cremoso de cogumelos frescos;480;true;Vegetariano|Sem glúten
+PRATO;5;Lasanha de berinjela;Lasanha de berinjela com molho de tomate;390;true;Vegetariano|Low carb
+PRATO;6;Salmão assado com ervas;Filé de salmão assado com ervas finas;450;true;Sem glúten|Sem lactose|Low carb
+PRATO;7;Tofu com legumes;Tofu grelhado com mix de legumes;350;true;Vegetariano|Sem glúten|Sem lactose|Low carb
+PRATO;8;Feijoada light;Feijoada light com couve e laranja;560;false;Sem lactose
+ACOMPANHAMENTO;11;Arroz integral;Porção de arroz integral;180;true;
+ACOMPANHAMENTO;12;Purê de abóbora;Purê de abóbora com ervas;120;true;
+ACOMPANHAMENTO;13;Salada verde;Mix de folhas verdes com tomate;60;true;
+ACOMPANHAMENTO;14;Feijão carioca;Porção de feijão carioca;150;true;
+ACOMPANHAMENTO;15;Batata rústica;Batata assada com alecrim;200;false;
+SOBREMESA;21;Mousse de chocolate;Mousse aerada de chocolate meio amargo;230;true;
+SOBREMESA;22;Frutas frescas;Frutas da estação picadas;90;true;
+SOBREMESA;23;Mousse de maracujá;Mousse leve de maracujá;180;true;
+SOBREMESA;24;Gelatina de morango;Gelatina sem açúcar;40;true;
+SOBREMESA;25;Pudim de leite;Pudim de leite condensado;260;false;

@@ -1,0 +1,5 @@
+id;nome;quantidadeRefeicoes;periodicidadeEntrega;valorMensal;ativo
+1;Essencial;10;Semanal;219.90;true
+2;Equilíbrio;20;Semanal;399.90;true
+3;Premium;30;Semanal;569.90;true
+4;Plano Antigo;12;Quinzenal;259.90;false
