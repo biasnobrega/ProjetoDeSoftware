@@ -12,7 +12,7 @@ Implementação em Java do caso de uso **Assinar Plano de Refeições** (fluxo p
 
 ## Compilar e executar
 
-Sempre a partir da pasta `MinhaRefeicao/`, porque o programa lê e grava a pasta `dados/` em relação ao diretório atual.
+Sempre a partir da raiz do repositório (a pasta que contém `dados/` e `src/`), porque o programa lê e grava a pasta `dados/` em relação ao diretório atual.
 
 **Linux, macOS ou Git Bash:**
 
@@ -25,7 +25,7 @@ ou `./compilar.sh` e depois `./executar.sh`.
 
 **Windows (cmd):** `compilar.bat` e depois `executar.bat`.
 
-**NetBeans, IntelliJ ou VS Code:** abrir a pasta `MinhaRefeicao/` como projeto Java simples, marcar `src/` como pasta de código-fonte e executar `minharefeicao.Main` com o diretório de trabalho em `MinhaRefeicao/`.
+**NetBeans, IntelliJ ou VS Code:** abrir a raiz do repositório como projeto Java simples, marcar `src/` como pasta de código-fonte e executar `minharefeicao.Main` com o diretório de trabalho na raiz do repositório.
 
 ## Como usar (fluxo principal, igual ao protótipo)
 
@@ -93,6 +93,6 @@ O CVV nunca é gravado e do cartão só se grava o final.
 
 ## Mapeamento UML → código
 
-Os nomes de classes, atributos, métodos e parâmetros seguem o diagrama de classes de projeto. Cada seta do diagrama de sequência é uma chamada no método do objeto de onde ela sai, e os comentários `// Passo N` e `// FA…` marcam os pontos correspondentes. Tudo o que foi acrescentado além da UML está em [ACRESCIMOS-UML.md](ACRESCIMOS-UML.md). A divisão dos arquivos por commit está em [LOTES.md](LOTES.md).
+Os nomes de classes, atributos, métodos e parâmetros seguem o diagrama de classes de projeto. Cada seta do diagrama de sequência é uma chamada no método do objeto de onde ela sai, e os comentários `// Passo N` e `// FA…` marcam os pontos correspondentes. Tudo o que foi acrescentado além da UML está em [ACRESCIMOS-UML.md](ACRESCIMOS-UML.md).
 
 Os botões da tela usam lambdas de uma linha (`e -> metodo()`) só para ligar o clique ao método.

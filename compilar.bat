@@ -1,5 +1,5 @@
 @echo off
-rem Compila o projeto para a pasta out\. Execute a partir de MinhaRefeicao\.
+rem Compila o projeto para a pasta out\. Execute a partir da raiz do repositorio.
 if exist out rmdir /s /q out
 dir /s /b src\*.java > fontes.txt
 javac -encoding UTF-8 -d out @fontes.txt

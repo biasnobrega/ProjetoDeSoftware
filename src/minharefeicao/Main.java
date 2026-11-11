@@ -18,7 +18,7 @@ import minharefeicao.persistencia.PlanoDAO;
 
 /**
  * Cria os objetos que já existem no início do diagrama de sequência (pré-condição: planos
- * disponíveis e cardápio atualizado) e abre a tela. Execute a partir da pasta MinhaRefeicao/.
+ * disponíveis e cardápio atualizado) e abre a tela. Execute a partir da pasta que contém dados/ e src/.
  */
 public class Main {
 
@@ -27,7 +27,7 @@ public class Main {
     public static void main(String[] args) {
         if (!new File(PASTA_DADOS, "planos.csv").exists()) {
             JOptionPane.showMessageDialog(null,
-                    "Pasta 'dados' não encontrada. Execute a partir da pasta MinhaRefeicao/.",
+                    "Pasta 'dados' não encontrada. Execute a partir da pasta que contém dados/ e src/.",
                     "Minha Refeição", JOptionPane.ERROR_MESSAGE);
             return;
         }
