@@ -469,7 +469,7 @@ public class TelaAssinatura extends JFrame {
         mascara(txtCep, "#####-###");
         mascara(txtNumeroCartao, "#### #### #### ####");
         mascara(txtValidade, "##/##");
-        mascara(txtCvv, "####");
+        mascara(txtCvv, "###");
         limitarTexto(txtLogradouro, 60, "[\\p{L}\\d .,'ºª-]", false);
         limitarTexto(txtNumero, 6, "[\\dA-Za-z/]", true);
         limitarTexto(txtComplemento, 40, "[\\p{L}\\d .,'ºª/-]", false);
@@ -727,20 +727,17 @@ public class TelaAssinatura extends JFrame {
         String numeroCartao = txtNumeroCartao.getText().replaceAll("\\D", "");
         String validade = txtValidade.getText().trim();
         String cvv = new String(txtCvv.getPassword()).trim();
-        // American Express: 15 dígitos e CVV de 4; Visa, Mastercard e os demais: 16 e CVV de 3
-        boolean amex = numeroCartao.startsWith("34") || numeroCartao.startsWith("37");
 
         String erro = null;
         if (!titularValido(titular)) {
             erro = "Nome do titular inválido: escreva nome e sobrenome como estão no cartão "
                     + "(ex.: EDUARDO K IKEMATU).";
-        } else if (!numeroCartao.matches(amex ? "\\d{15}" : "\\d{16}")
-                || !numeroCartaoValido(numeroCartao)) {
-            erro = "Número do cartão inválido: confira os " + (amex ? "15" : "16") + " dígitos.";
+        } else if (!numeroCartao.matches("\\d{16}")) {
+            erro = "Número do cartão inválido: digite os 16 números do cartão.";
         } else if (!validadeValida(validade)) {
             erro = "Validade inválida: use MM/AA de um mês que ainda não passou.";
-        } else if (!cvv.matches(amex ? "\\d{4}" : "\\d{3}")) {
-            erro = "CVV inválido: são " + (amex ? "4" : "3") + " dígitos no verso do cartão.";
+        } else if (!cvv.matches("\\d{3}")) {
+            erro = "CVV inválido: são 3 dígitos no verso do cartão.";
         }
         if (erro != null) {
             exibirMensagem(erro);
@@ -785,24 +782,6 @@ public class TelaAssinatura extends JFrame {
             }
         }
         return true;
-    }
-
-    /** Dígito verificador do cartão (algoritmo de Luhn): pega erros de digitação. */
-    private boolean numeroCartaoValido(String numero) {
-        int soma = 0;
-        boolean dobrar = false;
-        for (int i = numero.length() - 1; i >= 0; i--) {
-            int digito = numero.charAt(i) - '0';
-            if (dobrar) {
-                digito *= 2;
-                if (digito > 9) {
-                    digito -= 9;
-                }
-            }
-            soma += digito;
-            dobrar = !dobrar;
-        }
-        return soma % 10 == 0;
     }
 
     /** MM/AA com mês de 01 a 12, sem estar vencido e até 20 anos à frente. */
