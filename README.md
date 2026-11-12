@@ -25,6 +25,18 @@ ou `./compilar.sh` e depois `./executar.sh`.
 
 **Windows (cmd):** `compilar.bat` e depois `executar.bat`.
 
+**GitHub Codespaces (tela pelo navegador):** o Codespace não tem tela gráfica e o programa usa Swing, por isso o repositório traz o `.devcontainer/devcontainer.json`, que instala o JDK 17 e um desktop virtual.
+
+1. Crie o Codespace em **Code → Codespaces → Create codespace on main**. Se já tiver um aberto, use `Ctrl+Shift+P` → **Codespaces: Rebuild Container**. Na primeira vez leva alguns minutos.
+2. Na aba **Portas** (*Ports*), clique no globo da porta **6080**, depois em **Connect**, e use a senha `vscode`.
+3. No terminal do Codespace, rode:
+
+```sh
+./compilar.sh && DISPLAY=:1 ./executar.sh
+```
+
+A janela do Minha Refeição abre na aba do desktop virtual.
+
 **NetBeans, IntelliJ ou VS Code:** abrir a raiz do repositório como projeto Java simples, marcar `src/` como pasta de código-fonte e executar `minharefeicao.Main` com o diretório de trabalho na raiz do repositório.
 
 ## Como usar (fluxo principal, igual ao protótipo)
@@ -49,9 +61,9 @@ ou `./compilar.sh` e depois `./executar.sh`.
 | Principal | Siga o passo a passo da seção anterior |
 | FA1 | Digitar 3 códigos errados: o botão "Validar código" é bloqueado → "Reenviar código" → digitar o novo código |
 | FA2 | Nos pratos ou nas sobremesas, adicionar 15 de um item e depois 10 de outro (o limite é a quantidade de refeições do plano, 20 no Equilíbrio): aparece a mensagem de limite e a seleção continua. O campo de quantidade não aceita mais que 20 de uma vez |
-| FA3, nova tentativa | Cartão **4111 1111 1117 0000** (válido, mas termina em 0000) é recusado → informar outro cartão |
+| FA3, nova tentativa | Cartão **4111 1111 1111 0000** (termina em 0000) é recusado → informar outro cartão |
 | FA3, desistência | Cartão terminado em 0000 → "Desistir da assinatura" → a assinatura fica CANCELADA no `assinaturas.csv` |
-| Dados inválidos | Os campos de celular, CEP, cartão, validade e CVV já se formatam e não aceitam dígitos a mais. Cidade só com a sigla ("SP"), rua ou nome sem vogal ("wkdkns"), cartão com número errado, validade vencida ou CVV curto: aparece uma mensagem e o campo pode ser corrigido |
+| Dados inválidos | Os campos de celular, CEP, cartão, validade e CVV já se formatam e não aceitam dígitos a mais. Cidade só com a sigla ("SP"), rua ou nome sem vogal ("wkdkns"), cartão com menos de 16 dígitos, validade vencida ou CVV curto: aparece uma mensagem e o campo pode ser corrigido |
 | Preferências | Marcar, por exemplo, "Vegetariano": a lista de pratos mostra só os compatíveis. Para repetir o fluxo com outras preferências, reabra o programa ou use outro celular |
 | Persistência | Fechar e abrir de novo e usar o mesmo celular: o assinante é reaproveitado de `assinantes.csv` e a numeração do protocolo continua de onde parou em `assinaturas.csv` |
 
@@ -89,7 +101,7 @@ O CVV nunca é gravado e do cartão só se grava o final.
 ## Simulações
 
 - **SMS:** o código aparece numa caixa de diálogo e no console.
-- **Operadora de cartão:** cartão terminado em `0000` é recusado (use `4111 1111 1117 0000`, que passa na validação do número); os demais são autorizados com um código `AUT-…`.
+- **Operadora de cartão:** cartão terminado em `0000` é recusado (por exemplo `4111 1111 1111 0000`); os demais são autorizados com um código `AUT-…`.
 
 ## Mapeamento UML → código
 
